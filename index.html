@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product_Card</title>
+    <style>
+        body{
+           background-color: #c6c7c7;
+            height: 100vh;
+        }
+        .product-container{
+            display: block;
+            margin: auto;
+           border-radius: 10px;
+           box-shadow: 0 0 10px 2px #acacac;
+            width: 350px;
+            padding: 5px;
+            background-color: pink
+        }
+        .main-contaner{
+         display: flex;
+         background-color:#fff ;
+         margin: 10px;
+         border-radius: 10px;
+      }
+        .img{
+            height:350px;
+            width: 225px;
+            border-radius: 30px;
+            padding: 10px 20px;
+
+        }
+        .img1{
+            height: 50px;
+            border: 1px solid black;
+            border-radius: 20px;
+            display: block;
+            margin: 25px 0px;
+            width: 30px;
+            padding: 5px;
+            background-color: #fff;
+        }
+        .sub-container2{
+            display: block;
+        }
+        .text{
+            padding: 0px 20px;
+        }
+        .icon{
+            height: 25px;
+            cursor: pointer;
+        }
+        .btn{
+            width: 150px;
+            padding: 5px ;
+           display: block;
+           margin: auto;
+            border: none;
+            border-radius: 10px;
+            font-size: 22px;
+            background-color:rgb(255, 185, 8) ;
+            color: #fff;
+
+        }
+        .increment{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .total{
+            text-align: center;
+        }
+        .btn1{
+            background-color:rgb(106, 4, 106);
+        }
+        .btn2{
+            background-color: rgb(255, 187, 0);
+        }
+        .btn3{
+            background-color: rgb(173, 3, 32);
+        }
+        .btn4{
+            background-color: #f5e9e9;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="product-container">
+    <div class="main-contaner">
+    <div class="sub-container1 ">
+       <img src="saree6.png" class="img" id="card"/>
+    </div>
+            <div class="sub-container">
+            <img src="saree2.png" class="img1" onclick="saree1()"/>
+            <img src="saree6.png" class="img1" onclick="saree2()"/>
+            <img src="saree4.png" class="img1" onclick="saree3()"/>
+            <img src="saree5.png" class="img1" onclick="saree4()"/>
+        </div></div>
+        <div class="sub-container2 text"><p><b>New Designer Party Wear Lehenga Saree With Stitch Blouse</b></p>
+        <h2 class="price text">Price:₹1,499</h2>
+        
+      
+      <div>
+        <div class="increment">
+            <div class="increment1 increment">
+                <img src="minus (1).png" class="icon" onclick="decrement()"/>
+                    <span class="text1" id="quantity-num1">1</span>
+                <img src="plus.png" class="icon" onclick="increment()"/>
+            </div>
+            <div class="increment1">
+                <h3 class="quantity text" id="quantity-num">1*1499</h3>
+            </div>
+    </div>
+        <p class="total" id="total-price">Total:1499/-</p>
+      </div>
+      <button class="btn" type="button" id="btn">Buy Now</button>
+    </div>
+</div>
+    
+</div>
+
+<script>
+     function increment(){
+        const qauntityElement = document.getElementById("quantity-num1");
+        const showquantity = document.getElementById("quantity-num");
+        const total = document.getElementById("total-price");
+        let quantity = parseInt(qauntityElement.innerText);
+        if(quantity<10)
+        {
+            qauntityElement.innerText = ++quantity;
+        }
+        else{
+            alert('You Cant order more than 10 items');
+        }
+        total.innerText=`Total:${quantity*1499}`;
+        showquantity.innerText=`${quantity}x1499`;
+        
+     }
+    
+     function decrement(){
+        const qauntityElement = document.getElementById("quantity-num1");
+        const showquantity = document.getElementById("quantity-num");
+        const total = document.getElementById("total-price");
+        let quantity = parseInt(qauntityElement.innerText);
+        if(quantity>1)
+        {
+            qauntityElement.innerText = --quantity;
+        }
+        else{
+            alert('You Cant order more than 10 items');
+        }
+        total.innerText=`Total:${quantity*1499}`;
+        showquantity.innerText=`${quantity}x1499`;
+     }
+
+
+
+    function saree1()
+    {
+        const saree = document.getElementById("card");
+        saree.src = 'saree2.png';
+        const btn = document.getElementById("btn");
+        btn.classList.add('btn1');
+   }
+    function saree2()
+    {
+        const saree = document.getElementById("card");
+        saree.src = 'saree6.png';
+        const btn1 = document.getElementById("btn");
+        btn.classList.add('btn2');
+    }
+    function saree3()
+    {
+        const saree = document.getElementById("card");
+        saree.src = 'saree4.png';
+        const btn2 = document.getElementById("btn");
+        btn.classList.add('btn3');
+    }
+    function saree4()
+    {
+        const saree = document.getElementById("card");
+        saree.src = 'saree5.png';
+        const btn3 = document.getElementById("btn");
+        btn.classList.add('btn4');
+    }
+</script>
+</body>
+</html>
